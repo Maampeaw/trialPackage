@@ -9,7 +9,7 @@ import UIKit
 
 public class CheckoutViewController: UIViewController {
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
     }
