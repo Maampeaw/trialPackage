@@ -21,6 +21,8 @@ class ReceiptTableViewCell: UITableViewCell {
         self.backgroundColor = .clear
         self.selectionStyle = .none
         self.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32)
+        self.addSubview(receiptView)
+        setupConstraints()
     }
     
     func setupConstraints(){
