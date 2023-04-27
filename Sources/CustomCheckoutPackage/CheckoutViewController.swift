@@ -24,6 +24,7 @@ public class CheckoutViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
+        table.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         return table
     }()
     
@@ -32,6 +33,7 @@ public class CheckoutViewController: UIViewController {
         view.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         self.view.addSubview(bottomButton)
         self.view.addSubview(tableView)
+        tableView.register(ReceiptTableViewCell.self, forCellReuseIdentifier: ReceiptTableViewCell.identifier)
         setupConstraints()
     }
     
@@ -57,11 +59,12 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ReceiptTableViewCell.identifier) as! ReceiptTableViewCell
+        return cell
     }
     
     
