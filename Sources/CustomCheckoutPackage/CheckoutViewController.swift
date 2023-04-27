@@ -45,6 +45,7 @@ public class CheckoutViewController: UIViewController {
         
         let tableViewConstraints = [NSLayoutConstraint.constraints(withVisualFormat: "V:|-[tableView][bottomButton]", metrics: nil, views: views), NSLayoutConstraint.constraints(withVisualFormat: "H:|[tableView]|", metrics: nil, views: views)
         ].flatMap{$0}
+        NSLayoutConstraint.activate(tableViewConstraints)
         
     }
     
