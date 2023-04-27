@@ -21,7 +21,7 @@ public class CheckoutViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         self.view.addSubview(bottomButton)
         setupConstraints()
     }
@@ -29,7 +29,7 @@ public class CheckoutViewController: UIViewController {
     func setupConstraints(){
         let views = ["bottomButton": bottomButton]
         //Setup bottom constraints for button
-        let buttonConstraints = [NSLayoutConstraint.constraints(withVisualFormat: "H:|[bottomButton]|", metrics: nil, views: views), NSLayoutConstraint.constraints(withVisualFormat: "V:[bottomButton]-|", metrics: nil, views: views)].flatMap{$0}
+        let buttonConstraints = [NSLayoutConstraint.constraints(withVisualFormat: "H:|[bottomButton]|", metrics: nil, views: views), NSLayoutConstraint.constraints(withVisualFormat: "V:[bottomButton]|", metrics: nil, views: views)].flatMap{$0}
         NSLayoutConstraint.activate(buttonConstraints)
         
     }
