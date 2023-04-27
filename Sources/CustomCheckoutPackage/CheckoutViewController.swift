@@ -31,6 +31,7 @@ public class CheckoutViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         self.view.addSubview(bottomButton)
+        self.view.addSubview(tableView)
         setupConstraints()
     }
     
