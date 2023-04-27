@@ -11,9 +11,10 @@ class CustomButtonView: UIView {
     let button: UIButton = {
         let view = UIButton()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .green
+        view.backgroundColor = UIColor(red: 1/255, green: 199.0/255, blue: 177.0/255, alpha: 1)
         view.setTitle("Pay now", for: .normal)
         view.setTitleColor(.white, for: .normal)
+        view.layer.cornerRadius = 8
         return view
     }()
     
@@ -21,6 +22,7 @@ class CustomButtonView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        backgroundColor = .white
         self.addSubview(button)
         setupConstraints()
         
