@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ReceiptHeaderView: UIView {
     
     //top information of the receipt
@@ -43,9 +44,9 @@ class ReceiptHeaderView: UIView {
         stack.axis = .horizontal
         stack.spacing = 8
         stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.isLayoutMarginsRelativeArrangement = true
         stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0)
+        stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
@@ -89,7 +90,7 @@ class ReceiptHeaderView: UIView {
     }()
     
     lazy var feesStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [amountLabel, amountValue])
+        let stack = UIStackView(arrangedSubviews: [feesLabel, feesValue])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal
@@ -112,7 +113,7 @@ class ReceiptHeaderView: UIView {
     }()
     
     lazy var taxStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [amountLabel, amountValue])
+        let stack = UIStackView(arrangedSubviews: [taxLabel, taxValue])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.distribution = .fillEqually
         stack.axis = .horizontal
@@ -175,7 +176,7 @@ class ReceiptHeaderView: UIView {
     
     func setupConstraints(){
         let views = ["mainStack": mainStack]
-        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 50), businessImage.widthAnchor.constraint(equalToConstant: 50)]
+        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 32), businessImage.widthAnchor.constraint(equalToConstant: 32)]
         let mainStackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|[mainStack]|", metrics: nil, views: views),
             NSLayoutConstraint.constraints(withVisualFormat: "V:|[mainStack]|", metrics: nil, views: views)
