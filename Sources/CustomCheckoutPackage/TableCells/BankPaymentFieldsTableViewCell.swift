@@ -48,6 +48,7 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        contentView.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         contentView.addSubview(parentStack)
         setupConstraints()
     }
@@ -57,7 +58,7 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
     }
     
     func setupConstraints(){
-        let views = ["accountNumberfield":accountNumberTextField, "dobfield": dobTextField, "cvvfield": cvvTextField]
+        let views = ["accountNumberfield":accountNumberTextField, "dobfield": dobTextField, "cvvfield": cvvTextField, "stack": parentStack]
         let buttonWidth = (UIScreen.main.bounds.width - 80)/2
         let accountNumberTextFieldConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "V:|[accountNumberfield(50)]", metrics: nil, views: views),
@@ -76,5 +77,12 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
             NSLayoutConstraint.constraints(withVisualFormat: "V:[accountNumberfield]-(16)-[cvvfield(50)]", metrics: nil, views: views)
         ].flatMap {$0}
         NSLayoutConstraint.activate(cvvTextFieldConstraints)
+        
+        let parentStackConstraints = [
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[stack]-|", metrics: nil, views: views),
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|-[stack]-|", metrics: nil, views: views)
+        ]
+        NSLayoutConstraint.activate(parentStackConstraints)
+        
     }
 }
