@@ -48,7 +48,7 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        self.contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
         contentView.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         contentView.addSubview(parentStack)
         setupConstraints()
@@ -80,7 +80,7 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(cvvTextFieldConstraints)
         
         let parentStackConstraints = [
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[stack]-|", metrics: nil, views: views),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|[stack]|", metrics: nil, views: views),
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[stack]-|", metrics: nil, views: views)
         ].flatMap {$0}
         NSLayoutConstraint.activate(parentStackConstraints)
