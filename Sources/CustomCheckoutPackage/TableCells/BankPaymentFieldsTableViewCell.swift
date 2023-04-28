@@ -42,6 +42,7 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
         stack.axis = .vertical
         stack.isLayoutMarginsRelativeArrangement = true
         stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        stack.backgroundColor = .white
         return stack
     }()
 
