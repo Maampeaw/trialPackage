@@ -28,10 +28,11 @@ class PaymentChoiceTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 13.0, *) {
-            imageView.image = UIImage(systemName: "chevron.forward")
+            imageView.image = UIImage(named: "caretforward", in: Bundle.module, compatibleWith: nil)
         }else{
             imageView.image = UIImage(named: "darkHeroImage1")
         }
+        imageView.clipsToBounds = true
         return imageView
     }()
     
