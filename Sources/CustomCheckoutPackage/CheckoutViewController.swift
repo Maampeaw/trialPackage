@@ -30,7 +30,9 @@ struct Option{
 }
 public class CheckoutViewController: UIViewController {
     
-    var data: [Section] = [Section(title: "Pay with", imageName: "", options:[],  cellStyle: .payWithTitle)]
+    var data: [Section] = [ Section(title: "", imageName: "", cellStyle: .receiptHeader),
+                            Section(title: "Pay with", imageName: "", options:[],  cellStyle: .payWithTitle)
+    ]
     
     public static func openController(with customController: UIViewController){
         let controller = CheckoutViewController()
@@ -96,6 +98,10 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
             case .payWithTitle:
                 let cell = tableView.dequeueReusableCell(withIdentifier: PayWithTableViewCell.identifier) as! PayWithTableViewCell
                 return cell
+            case .receiptHeader:
+                let cell = tableView.dequeueReusableCell(withIdentifier: ReceiptTableViewCell.identifier) as! ReceiptTableViewCell
+                return cell
+                
             default:
                 return UITableViewCell()
             }

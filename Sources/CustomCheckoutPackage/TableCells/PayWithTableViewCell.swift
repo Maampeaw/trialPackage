@@ -35,7 +35,7 @@ class PayWithTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
         contentView.addSubview(parentStack)
-        contentView.backgroundColor = .clear
+        contentView.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         setupConstraints()
     }
     
@@ -45,7 +45,7 @@ class PayWithTableViewCell: UITableViewCell {
     
     func setupConstraints(){
         let views = ["parentStack": parentStack]
-        let parentStackConstraints = [NSLayoutConstraint.constraints(withVisualFormat: "H:|-[parentStack]-|", metrics: nil, views: views), NSLayoutConstraint.constraints(withVisualFormat: "V:|-[parentStack]-|", metrics: nil, views: views)].flatMap { $0 }
+        let parentStackConstraints = [NSLayoutConstraint.constraints(withVisualFormat: "H:|-[parentStack]-|", metrics: nil, views: views), NSLayoutConstraint.constraints(withVisualFormat: "V:|-[parentStack]|", metrics: nil, views: views)].flatMap { $0 }
         NSLayoutConstraint.activate(parentStackConstraints)
     }
 
