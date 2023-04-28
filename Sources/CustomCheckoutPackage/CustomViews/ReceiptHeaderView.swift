@@ -136,6 +136,7 @@ class ReceiptHeaderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "You will be charged the following amount"
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         return label
     }()
     
@@ -155,6 +156,7 @@ class ReceiptHeaderView: UIView {
         stack.spacing = 8
         stack.isLayoutMarginsRelativeArrangement = true
         stack.directionalLayoutMargins  = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 16, trailing: 0)
+        stack.backgroundColor = .systemYellow
         return stack
     }()
     
@@ -180,6 +182,7 @@ class ReceiptHeaderView: UIView {
     func setupConstraints(){
         let views = ["mainStack": mainStack]
         let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 32), businessImage.widthAnchor.constraint(equalToConstant: 32)]
+        NSLayoutConstraint.activate(imageSizeConstraints)
         let mainStackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|[mainStack]|", metrics: nil, views: views),
             NSLayoutConstraint.constraints(withVisualFormat: "V:|[mainStack]|", metrics: nil, views: views)
