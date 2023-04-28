@@ -29,7 +29,7 @@ class ReceiptTableViewCell: UITableViewCell {
         let views = ["receiptView": receiptView]
         let receiptConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[receiptView]-|", metrics: nil, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[receiptView]-|", metrics: nil, views: views)].flatMap {$0}
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-(32)-[receiptView]-(32)-|", metrics: nil, views: views)].flatMap {$0}
         NSLayoutConstraint.activate(receiptConstraints)
         
     }
