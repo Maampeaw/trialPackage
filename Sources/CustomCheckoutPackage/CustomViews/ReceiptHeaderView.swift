@@ -51,6 +51,17 @@ class ReceiptHeaderView: UIView {
         return stack
     }()
     
+    lazy var centerStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [topHeaderStack])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .center
+        stack.axis = .vertical
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.directionalLayoutMargins  = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 16, trailing: 0)
+        stack.backgroundColor = .systemYellow
+        return stack
+    }()
+    
     //middle stack of the receipt
     let amountLabel: UILabel = {
         let label = UILabel()
@@ -162,7 +173,7 @@ class ReceiptHeaderView: UIView {
     }()
     
     lazy var mainStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [topHeaderStack, middleStack, bottomStack])
+        let stack = UIStackView(arrangedSubviews: [centerStack, middleStack, bottomStack])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         return stack
