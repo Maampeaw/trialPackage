@@ -20,8 +20,8 @@ class BottomCornersTableViewCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.backgroundColor = .white
-        layer.cornerRadius = 16
-        layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+        stack.layer.cornerRadius = 16
+        stack.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
         return stack
     }()
     
@@ -30,12 +30,13 @@ class BottomCornersTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(parentStack)
         contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        contentView.backgroundColor = UIColor(red: 242.0/255, green: 242.0/255, blue: 242.0/255,alpha:1)
         setupConstraints()
     }
     
     func setupConstraints(){
         let views = ["parentStack": parentStack]
-        customView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        customView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         let stackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[parentStack]-|", metrics: nil, views: views),NSLayoutConstraint.constraints(withVisualFormat: "V:|[parentStack]|", metrics: nil, views: views)
         ].flatMap {$0}
