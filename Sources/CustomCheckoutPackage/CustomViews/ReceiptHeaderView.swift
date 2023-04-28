@@ -21,6 +21,7 @@ class ReceiptHeaderView: UIView {
             view.image = UIImage(named: "darkHeroImage1")
         }
         view.clipsToBounds = true
+        view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return view
     }()
     
@@ -205,7 +206,7 @@ class ReceiptHeaderView: UIView {
     
     func setupConstraints(){
         let views = ["mainStack": mainStack]
-        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 120), businessImage.widthAnchor.constraint(equalToConstant: 120)]
+        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 70), businessImage.widthAnchor.constraint(equalToConstant: 70)]
         NSLayoutConstraint.activate(imageSizeConstraints)
         let mainStackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|[mainStack]|", metrics: nil, views: views),
