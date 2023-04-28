@@ -69,13 +69,13 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
         
         let dobTextFieldConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|[dobfield(\(buttonWidth))]", metrics: nil, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:[accountNumberfield]-(16)-[dobfield(50)]", metrics: nil, views: views)
+            NSLayoutConstraint.constraints(withVisualFormat: "V:[accountNumberfield]-(16)-[dobfield(50)]-|", metrics: nil, views: views)
         ].flatMap {$0}
         NSLayoutConstraint.activate(dobTextFieldConstraints)
         
         let cvvTextFieldConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:[cvvfield(\(buttonWidth))]|", metrics: nil, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:[accountNumberfield]-(16)-[cvvfield(50)]", metrics: nil, views: views)
+            NSLayoutConstraint.constraints(withVisualFormat: "V:[accountNumberfield]-(16)-[cvvfield(50)]-|", metrics: nil, views: views)
         ].flatMap {$0}
         NSLayoutConstraint.activate(cvvTextFieldConstraints)
         
