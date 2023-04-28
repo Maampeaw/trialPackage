@@ -13,6 +13,7 @@ enum CellStyles{
     case paymentChoiceHeader
     case momoInputs
     case bankCardInputs
+    case bottomCell
 }
 
 struct Section{
@@ -31,7 +32,9 @@ public class CheckoutViewController: UIViewController {
     
     var data: [Section] = [ Section(title: "", imageName: "", cellStyle: .receiptHeader),
                             Section(title: "Pay with", imageName: "", options:[],  cellStyle: .payWithTitle),
-                            Section(title: "Mobile Money", imageName: "", cellStyle: .paymentChoiceHeader)
+                            Section(title: "Mobile Money", imageName: "", cellStyle: .paymentChoiceHeader),
+                            Section(title: "Bank Card", imageName: "", cellStyle: .paymentChoiceHeader),
+                            Section(title: "", imageName: "", cellStyle: .bottomCell),
     ]
     
     public static func openController(with customController: UIViewController){
@@ -62,6 +65,7 @@ public class CheckoutViewController: UIViewController {
         tableView.register(ReceiptTableViewCell.self, forCellReuseIdentifier: ReceiptTableViewCell.identifier)
         tableView.register(PayWithTableViewCell.self, forCellReuseIdentifier: PayWithTableViewCell.identifier)
         tableView.register(PaymentChoiceTableViewCell.self, forCellReuseIdentifier: PaymentChoiceTableViewCell.identifier)
+        tableView.register(BottomCornersTableViewCell.self, forCellReuseIdentifier: BottomCornersTableViewCell.identifier)
         tableView.separatorStyle = .none
         setupConstraints()
     }
@@ -106,6 +110,9 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
             case .paymentChoiceHeader:
                 let cell = tableView.dequeueReusableCell(withIdentifier: PaymentChoiceTableViewCell.identifier) as! PaymentChoiceTableViewCell
                 cell.render(with: section)
+                return cell
+            case .bottomCell:
+                let cell = tableView.dequeueReusableCell(withIdentifier: BottomCornersTableViewCell.identifier) as! BottomCornersTableViewCell
                 return cell
             default:
                 return UITableViewCell()
