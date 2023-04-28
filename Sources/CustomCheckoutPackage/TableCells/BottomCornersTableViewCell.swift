@@ -14,7 +14,7 @@ class BottomCornersTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 16
-        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return view
     }()
     lazy var parentStack: UIStackView = {
@@ -23,7 +23,7 @@ class BottomCornersTableViewCell: UITableViewCell {
         stack.axis = .vertical
         stack.backgroundColor = .white
         stack.layer.cornerRadius = 16
-        stack.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+        stack.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return stack
     }()
     
