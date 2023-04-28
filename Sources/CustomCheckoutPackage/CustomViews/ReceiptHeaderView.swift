@@ -184,6 +184,7 @@ class ReceiptHeaderView: UIView {
         super.init(frame: frame)
         addSubview(mainStack)
         setupConstraints()
+        backgroundColor = .white
         
     }
     
