@@ -13,6 +13,7 @@ class PayWithTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.text = "Pay With"
         return label
     }()
     
@@ -34,6 +35,7 @@ class PayWithTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
         contentView.addSubview(parentStack)
+        contentView.backgroundColor = .clear
         setupConstraints()
     }
     
