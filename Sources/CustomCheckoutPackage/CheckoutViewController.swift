@@ -10,9 +10,8 @@ import UIKit
 enum CellStyles{
     case receiptHeader
     case payWithTitle
-    case momoHeader
+    case paymentChoiceHeader
     case momoInputs
-    case bankCardsHeader
     case bankCardInputs
 }
 
@@ -31,7 +30,8 @@ struct Option{
 public class CheckoutViewController: UIViewController {
     
     var data: [Section] = [ Section(title: "", imageName: "", cellStyle: .receiptHeader),
-                            Section(title: "Pay with", imageName: "", options:[],  cellStyle: .payWithTitle)
+                            Section(title: "Pay with", imageName: "", options:[],  cellStyle: .payWithTitle),
+                            Section(title: "Mobile Money", imageName: "", cellStyle: .paymentChoiceHeader)
     ]
     
     public static func openController(with customController: UIViewController){
@@ -61,6 +61,8 @@ public class CheckoutViewController: UIViewController {
         self.view.addSubview(tableView)
         tableView.register(ReceiptTableViewCell.self, forCellReuseIdentifier: ReceiptTableViewCell.identifier)
         tableView.register(PayWithTableViewCell.self, forCellReuseIdentifier: PayWithTableViewCell.identifier)
+        tableView.register(PaymentChoiceTableViewCell.self, forHeaderFooterViewReuseIdentifier: PaymentChoiceTableViewCell.identifier)
+        tableView.separatorStyle = .none
         setupConstraints()
     }
     
@@ -101,7 +103,10 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
             case .receiptHeader:
                 let cell = tableView.dequeueReusableCell(withIdentifier: ReceiptTableViewCell.identifier) as! ReceiptTableViewCell
                 return cell
-                
+            case .paymentChoiceHeader:
+                let cell = tableView.dequeueReusableCell(withIdentifier: PaymentChoiceTableViewCell.identifier) as! PaymentChoiceTableViewCell
+                cell.render(with: section)
+                return cell
             default:
                 return UITableViewCell()
             }
