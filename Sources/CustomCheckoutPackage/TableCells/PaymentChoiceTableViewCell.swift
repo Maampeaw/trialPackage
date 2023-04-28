@@ -28,7 +28,7 @@ class PaymentChoiceTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 13.0, *) {
-            imageView.image = UIImage(named: "caretforward", in: Bundle.module, compatibleWith: nil)
+            imageView.image = UIImage(named: "caretforward", in: Bundle.module, compatibleWith: nil)?.withRenderingMode(.alwaysOriginal)
         }else{
             imageView.image = UIImage(named: "darkHeroImage1")
         }
