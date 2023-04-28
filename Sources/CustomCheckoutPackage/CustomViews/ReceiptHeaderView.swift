@@ -21,7 +21,7 @@ class ReceiptHeaderView: UIView {
             view.image = UIImage(named: "darkHeroImage1")
         }
         view.clipsToBounds = true
-        view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+       
         return view
     }()
     
