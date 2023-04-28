@@ -58,6 +58,7 @@ public class CheckoutViewController: UIViewController {
         self.view.addSubview(bottomButton)
         self.view.addSubview(tableView)
         tableView.register(ReceiptTableViewCell.self, forCellReuseIdentifier: ReceiptTableViewCell.identifier)
+        tableView.register(PayWithTableViewCell.self, forCellReuseIdentifier: PayWithTableViewCell.identifier)
         setupConstraints()
     }
     
