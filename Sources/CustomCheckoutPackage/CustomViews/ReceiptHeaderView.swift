@@ -43,7 +43,6 @@ class ReceiptHeaderView: UIView {
         let stack = UIStackView(arrangedSubviews: [businessImage, businessInfoStack])
         stack.axis = .horizontal
         stack.spacing = 8
-        stack.distribution = .equalCentering
         stack.isLayoutMarginsRelativeArrangement = true
         stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0)
         stack.translatesAutoresizingMaskIntoConstraints = false
