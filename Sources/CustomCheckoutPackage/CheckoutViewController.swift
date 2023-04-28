@@ -61,7 +61,7 @@ public class CheckoutViewController: UIViewController {
         self.view.addSubview(tableView)
         tableView.register(ReceiptTableViewCell.self, forCellReuseIdentifier: ReceiptTableViewCell.identifier)
         tableView.register(PayWithTableViewCell.self, forCellReuseIdentifier: PayWithTableViewCell.identifier)
-        tableView.register(PaymentChoiceTableViewCell.self, forHeaderFooterViewReuseIdentifier: PaymentChoiceTableViewCell.identifier)
+        tableView.register(PaymentChoiceTableViewCell.self, forCellReuseIdentifier: PaymentChoiceTableViewCell.identifier)
         tableView.separatorStyle = .none
         setupConstraints()
     }
