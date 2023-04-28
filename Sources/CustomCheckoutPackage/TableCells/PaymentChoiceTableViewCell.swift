@@ -70,7 +70,7 @@ class PaymentChoiceTableViewCell: UITableViewCell {
         
         let carretConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:[carret(24)]-|", metrics: nil, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:-[carret(24)]-|", metrics: nil, views: views)
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[carret(24)]-|", metrics: nil, views: views)
         ].flatMap {$0}
         
         NSLayoutConstraint.activate(carretConstraints)
