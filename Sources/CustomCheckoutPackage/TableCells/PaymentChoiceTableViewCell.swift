@@ -18,6 +18,9 @@ class PaymentChoiceTableViewCell: UITableViewCell {
     let selectionCircle: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.borderColor = UIColor.green.cgColor
+        view.layer.borderWidth = 3
+        view.layer.cornerRadius = 12
         return view
     }()
     
@@ -39,6 +42,7 @@ class PaymentChoiceTableViewCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: [parentContainer])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fill
+        stackView.backgroundColor = .white
         return stackView
     }()
 
@@ -57,11 +61,11 @@ class PaymentChoiceTableViewCell: UITableViewCell {
     }
     
     func setupConstraints(){
-        let views = ["sectionCircle": selectionCircle, "paymentType": paymentType, "carret":carret]
+        let views = ["sectionCircle": selectionCircle, "paymentType": paymentType, "carret":carret, "parenttStack": parentStack]
         
         let sectionCircleConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[sectionCircle(24)]", metrics: nil, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[paymentType]-|", metrics: nil, views: views)
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[sectionCircle(24)]-|", metrics: nil, views: views)
         ].flatMap {$0}
         NSLayoutConstraint.activate(sectionCircleConstraints)
         
@@ -74,6 +78,12 @@ class PaymentChoiceTableViewCell: UITableViewCell {
         ].flatMap {$0}
         
         NSLayoutConstraint.activate(carretConstraints)
+        
+        let stackViewConstraints = [
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|-[parentStack]-|", metrics: nil, views: views),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[parentStack]-|", metrics: nil, views: views)
+        ].flatMap {$0}
+        NSLayoutConstraint.activate(stackViewConstraints)
         
     }
     
