@@ -206,7 +206,7 @@ class ReceiptHeaderView: UIView {
     
     func setupConstraints(){
         let views = ["mainStack": mainStack]
-        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 32), businessImage.widthAnchor.constraint(equalToConstant: 32)]
+        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 72), businessImage.widthAnchor.constraint(equalToConstant: 72)]
         NSLayoutConstraint.activate(imageSizeConstraints)
         let mainStackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|[mainStack]|", metrics: nil, views: views),
