@@ -81,7 +81,7 @@ class PaymentChoiceTableViewCell: UITableViewCell {
         
         let stackViewConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[parentStack]-|", metrics: nil, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[parentStack]-|", metrics: nil, views: views)
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|[parentStack]|", metrics: nil, views: views)
         ].flatMap {$0}
         NSLayoutConstraint.activate(stackViewConstraints)
         
