@@ -13,6 +13,8 @@ class BottomCornersTableViewCell: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 16
+        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
         return view
     }()
     lazy var parentStack: UIStackView = {
