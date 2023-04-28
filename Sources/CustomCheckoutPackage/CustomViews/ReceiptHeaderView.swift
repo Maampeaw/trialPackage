@@ -8,12 +8,18 @@
 import UIKit
 
 
+
 class ReceiptHeaderView: UIView {
     
     //top information of the receipt
     let businessImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 13.0, *) {
+            view.image = UIImage(named: "darkHeroImage1", in: Bundle.module, with: nil)
+        }else{
+            view.image = UIImage(named: "darkHeroImage1")
+        }
         return view
     }()
     
@@ -194,7 +200,7 @@ class ReceiptHeaderView: UIView {
     
     func setupConstraints(){
         let views = ["mainStack": mainStack]
-        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 32), businessImage.widthAnchor.constraint(equalToConstant: 32)]
+        let imageSizeConstraints = [businessImage.heightAnchor.constraint(equalToConstant: 120), businessImage.widthAnchor.constraint(equalToConstant: 120)]
         NSLayoutConstraint.activate(imageSizeConstraints)
         let mainStackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|[mainStack]|", metrics: nil, views: views),
