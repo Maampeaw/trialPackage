@@ -43,7 +43,7 @@ class ReceiptHeaderView: UIView {
         let stack = UIStackView(arrangedSubviews: [businessImage, businessInfoStack])
         stack.axis = .horizontal
         stack.spacing = 8
-        stack.alignment = .center
+        stack.distribution = .equalCentering
         stack.isLayoutMarginsRelativeArrangement = true
         stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0)
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -135,12 +135,15 @@ class ReceiptHeaderView: UIView {
     let chargeInfo: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "You will be charged the following amount"
         return label
     }()
     
     let totalAmount: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "GHS 20.00"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
     }()
     
