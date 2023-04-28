@@ -61,7 +61,7 @@ class PaymentChoiceTableViewCell: UITableViewCell {
     }
     
     func setupConstraints(){
-        let views = ["sectionCircle": selectionCircle, "paymentType": paymentType, "carret":carret, "parenttStack": parentStack]
+        let views = ["sectionCircle": selectionCircle, "paymentType": paymentType, "carret":carret, "parentStack": parentStack]
         
         let sectionCircleConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[sectionCircle(24)]", metrics: nil, views: views),
