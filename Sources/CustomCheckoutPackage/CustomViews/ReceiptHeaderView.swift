@@ -70,7 +70,6 @@ class ReceiptHeaderView: UIView {
         stack.axis = .vertical
         stack.isLayoutMarginsRelativeArrangement = true
         stack.directionalLayoutMargins  = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 16, trailing: 0)
-        stack.backgroundColor = .systemYellow
         return stack
     }()
     
@@ -180,7 +179,7 @@ class ReceiptHeaderView: UIView {
         stack.spacing = 8
         stack.isLayoutMarginsRelativeArrangement = true
         stack.directionalLayoutMargins  = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 16, trailing: 0)
-        stack.backgroundColor = .systemYellow
+        stack.backgroundColor = UIColor(red: 251/255, green: 237/255, blue: 174/255, alpha: 1)
         return stack
     }()
     
