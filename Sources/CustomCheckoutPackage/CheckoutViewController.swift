@@ -33,7 +33,7 @@ public class CheckoutViewController: UIViewController {
     var data: [Section] = [ Section(title: "", imageName: "", cellStyle: .receiptHeader),
                             Section(title: "Pay with", imageName: "", options:[],  cellStyle: .payWithTitle),
                             Section(title: "Mobile Money", imageName: "", cellStyle: .paymentChoiceHeader),
-                            Section(title: "Bank Card", imageName: "", cellStyle: .paymentChoiceHeader),
+                            Section(title: "Bank Card", imageName: "", options: [Option(title: "", image: "", cellStyle: .bankCardInputs)], cellStyle: .paymentChoiceHeader),
                             Section(title: "", imageName: "", cellStyle: .bottomCell),
     ]
     
@@ -94,6 +94,10 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let singleSection = data[section]
+        if singleSection.isOpened{
+            return singleSection.options.count + 1
+        }
         return 1
     }
     
@@ -117,8 +121,25 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
             default:
                 return UITableViewCell()
             }
+        }else {
+            if section.isOpened{
+                switch section.options[indexPath.row - 1].cellStyle{
+                case .bankCardInputs:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: BankPaymentFieldsTableViewCell.identifier) as! BankPaymentFieldsTableViewCell
+                    return cell
+                default:
+                    return UITableViewCell()
+                    
+                }
+            }
+            
         }
         return UITableViewCell()
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        data[indexPath.section].isOpened = !data[indexPath.section].isOpened
+        tableView.reloadSections([indexPath.section], with: .none)
     }
     
     

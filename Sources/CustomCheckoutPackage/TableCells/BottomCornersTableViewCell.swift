@@ -38,7 +38,7 @@ class BottomCornersTableViewCell: UITableViewCell {
     
     func setupConstraints(){
         let views = ["parentStack": parentStack]
-        customView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        customView.heightAnchor.constraint(equalToConstant: 32).isActive = true
         let stackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[parentStack]-|", metrics: nil, views: views),NSLayoutConstraint.constraints(withVisualFormat: "V:|[parentStack]|", metrics: nil, views: views)
         ].flatMap {$0}
