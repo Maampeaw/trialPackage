@@ -20,6 +20,7 @@ class ReceiptHeaderView: UIView {
         }else{
             view.image = UIImage(named: "darkHeroImage1")
         }
+        view.clipsToBounds = true
         return view
     }()
     
@@ -41,6 +42,10 @@ class ReceiptHeaderView: UIView {
         let stack = UIStackView(arrangedSubviews: [businessName, recipientNumber])
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        stack.setContentHuggingPriority(.defaultLow, for: .vertical)
+        stack.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+        stack.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         stack.spacing = 8
         return stack
     }()
