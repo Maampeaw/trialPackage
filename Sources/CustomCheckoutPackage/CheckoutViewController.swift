@@ -7,7 +7,30 @@
 
 import UIKit
 
+enum CellStyles{
+    case receiptHeader
+    case payWithTitle
+    case momoHeader
+    case momoInputs
+    case bankCardsHeader
+    case bankCardInputs
+}
+
+struct Section{
+    let title, imageName: String
+    var options: [Option] = []
+    let cellStyle: CellStyles
+    var  isOpened: Bool = false
+    
+}
+
+struct Option{
+    let title, image: String
+    let cellStyle: CellStyles
+}
 public class CheckoutViewController: UIViewController {
+    
+    var data: [Section] = [Section(title: "Pay with", imageName: "", options:[],  cellStyle: .payWithTitle)]
     
     public static func openController(with customController: UIViewController){
         let controller = CheckoutViewController()
@@ -57,15 +80,26 @@ public class CheckoutViewController: UIViewController {
 
 
 extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
-    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ReceiptTableViewCell.identifier) as! ReceiptTableViewCell
-        return cell
+        let section = data[indexPath.section]
+        if indexPath.row == 0{
+            switch section.cellStyle{
+            case .payWithTitle:
+                let cell = tableView.dequeueReusableCell(withIdentifier: PayWithTableViewCell.identifier) as! PayWithTableViewCell
+                return cell
+            default:
+                return UITableViewCell()
+            }
+        }
+        return UITableViewCell()
     }
     
     
