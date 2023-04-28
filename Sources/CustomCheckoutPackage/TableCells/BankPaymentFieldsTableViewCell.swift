@@ -81,7 +81,7 @@ class BankPaymentFieldsTableViewCell: UITableViewCell {
         let parentStackConstraints = [
             NSLayoutConstraint.constraints(withVisualFormat: "V:|-[stack]-|", metrics: nil, views: views),
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[stack]-|", metrics: nil, views: views)
-        ]
+        ].flatMap {$0}
         NSLayoutConstraint.activate(parentStackConstraints)
         
     }
