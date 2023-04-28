@@ -11,6 +11,7 @@ public class CheckoutViewController: UIViewController {
     
     public static func openController(with customController: UIViewController){
         let controller = CheckoutViewController()
+        controller.modalPresentationStyle = .overFullScreen
         customController.present(controller, animated: true)
     }
     let bottomButton: CustomButtonView = {
