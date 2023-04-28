@@ -24,7 +24,8 @@ class CustomTextField: UITextField {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = UIColor.systemGray
+        backgroundColor = UIColor(red: 156.0/255, green: 171.0/255, blue: 184.0/255,alpha:1)
+        layer.cornerRadius = 8
     }
    
 

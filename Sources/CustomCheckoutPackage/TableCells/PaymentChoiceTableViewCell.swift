@@ -18,15 +18,20 @@ class PaymentChoiceTableViewCell: UITableViewCell {
     let selectionCircle: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderColor = UIColor.green.cgColor
+        view.layer.borderColor = UIColor(red: 1/255, green: 199.0/255, blue: 177.0/255, alpha: 1).cgColor
         view.layer.borderWidth = 3
-        view.layer.cornerRadius = 12
+        view.layer.cornerRadius = 10
         return view
     }()
     
     let carret: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 13.0, *) {
+            imageView.image = UIImage(systemName: "chevron.forward")
+        }else{
+            imageView.image = UIImage(named: "darkHeroImage1")
+        }
         return imageView
     }()
     
@@ -64,8 +69,8 @@ class PaymentChoiceTableViewCell: UITableViewCell {
         let views = ["sectionCircle": selectionCircle, "paymentType": paymentType, "carret":carret, "parentStack": parentStack]
         
         let sectionCircleConstraints = [
-            NSLayoutConstraint.constraints(withVisualFormat: "H:|-[sectionCircle(24)]", metrics: nil, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[sectionCircle(24)]-|", metrics: nil, views: views)
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|-[sectionCircle(20)]", metrics: nil, views: views),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-[sectionCircle(20)]-|", metrics: nil, views: views)
         ].flatMap {$0}
         NSLayoutConstraint.activate(sectionCircleConstraints)
         
@@ -89,6 +94,25 @@ class PaymentChoiceTableViewCell: UITableViewCell {
     
     func render(with value: Section){
         self.paymentType.text = value.title
+    }
+    
+    func  turnImage(){
+        UIView.animate(withDuration: 0.1) {
+            self.carret.transform = CGAffineTransform(rotationAngle: 90 * .pi/180)
+            self.selectionCircle.layer.borderWidth = 6
+        } completion: { _ in
+        }
+
+       
+    }
+    
+    func revert(){
+        UIView.animate(withDuration: 0.1) {
+            self.carret.transform = .identity
+            self.selectionCircle.layer.borderWidth = 3
+        } completion: { _ in
+            
+        }
     }
     
     

@@ -115,6 +115,11 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource{
             case .paymentChoiceHeader:
                 let cell = tableView.dequeueReusableCell(withIdentifier: PaymentChoiceTableViewCell.identifier) as! PaymentChoiceTableViewCell
                 cell.render(with: section)
+                if section.isOpened{
+                    cell.turnImage()
+                }else{
+                    cell.revert()
+                }
                 return cell
             case .bottomCell:
                 let cell = tableView.dequeueReusableCell(withIdentifier: BottomCornersTableViewCell.identifier) as! BottomCornersTableViewCell
